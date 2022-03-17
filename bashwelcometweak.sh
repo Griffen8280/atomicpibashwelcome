@@ -136,7 +136,7 @@ function pihole_welcome() {
                 out+="Temperature........: CPU: ${cpuTempC}°C/${cpuTempF}°F GPU: ${gpuTempC}°C/${gpuTempF}°F"
                 ;;
             10)
-                out+="${fgwht}The PiHole Project, https://pi-hole.net"
+                out+="${fgwht}The AtomicPi Project, https://digital-loggers.com/api.html"
                 ;;
         esac
         out+="${rst}\n"
