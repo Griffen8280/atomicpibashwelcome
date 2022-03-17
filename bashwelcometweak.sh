@@ -25,7 +25,7 @@ home=~/ # Primary home location
 
 function install_bashwelcometweak() {
     remove_bashwelcometweak
-    cat >> "$home/.bashrc" <<\_EOF_
+    cat >> "$HOME/.bashrc" <<\_EOF_
 # PIHOLE PROFILE START
 
 function getIPAddress() {
