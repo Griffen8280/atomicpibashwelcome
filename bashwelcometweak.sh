@@ -90,18 +90,17 @@ function pihole_welcome() {
     local bfgwht="${bld}$(tput setaf 7)"
 
     local logo=(
-        "${fgwht}@${bfggrn}(${fgwht}@@@@@@@@@@@@@@@@@@"
-        "${fgwht}@${bfggrn}(((((((${fgwht}@@@@@@@@@@@@"
-        "${fgwht}@@${bfggrn}((((${fgred}%${bfggrn}(${fggrn}/${fgwht}@@@${fggrn}////${fgwht}@@@@"
-        "${fgwht}@@@@@${bfggrn}(((${fgwht}@${fggrn}//////${fgwht}@@@@@"
-        "${fgwht}@@@@@@@@@${fgred}%%%${fgwht}@@@@@@@@"
-        "${fgwht}@@@@@@${fgred}%%%%%%%%${bfgred}&${fgwht}@@@@@"
-        "${fgwht}@@@${fgred}%%%%%%%%%%%${bfgred}&&&&${fgwht}@@"
-        "${fgwht}@${bfgred}&&&&&&&${fgwht}@@${fgred}%${fgwht}@@${bfgred}&&&&&&&"
-        "${bfgred}&&&&&&&&${fgwht}@@@@@${bfgred}&&&&&&&"
-        "${fgwht}@${bfgred}&&&&&&&${fgwht}@${fgred}%%%${fgwht}@@${bfgred}&&&&&${fgred}%"
-        "${fgwht}@@@@${bfgred}&&&${fgred}%%%%%%%%%%${fgwht}@@@"
-        "${fgwht}@@@@@@${bfgred}&${fgred}%%%%%%%%${fgwht}@@@@@"
+        "   _____    __                    __         "
+        "  /  _  \ _/  |_  ____    _____  |__|  ____  "
+        " /  /_\  \\    __\/  _ \  /     \ |  |_/ ___\ "
+        "/    |    \|  | (  <_> )|  Y Y  \|  |\  \___ "
+        "\____|__  /|__|  \____/ |__|_|  /|__| \___  >"
+        "        \/                    \/          \/ "
+        "            __________ .__                   "
+        "            \______   \|__|                  "
+        "             |     ___/|  |                  "
+        "             |    |    |  |                  "
+        "             |____|    |__|                  "
         )
     local out
     local i
