@@ -50,9 +50,16 @@ function pihole_welcome() {
     local cpuTempF
     local gpuTempC
     local gpuTempF
-    if [[ -f "/sys/class/thermal/thermal_zone0/temp" ]]; then
-        cpuTempC=$(($(cat /sys/class/thermal/thermal_zone0/temp)/1000)) && cpuTempF=$((cpuTempC*9/5+32))
-    fi
+        IFS=')' read -ra core_temp_arr <<< "$(sensors -f  | grep '^Core\s[[:digit:]]\+:')" #echo "${core_temp_arr[0]}"
+        total_cpu_temp=0
+        index=0
+        for i in "${core_temp_arr[@]}"; do :
+                temp=$(echo "$i" | sed -n 's/F.*//; s/.*[+-]//; p; q')
+                let index++
+                total_cpu_temp=$(echo "$total_cpu_temp + $temp" | bc)
+        done
+        cpuTempF=$(echo "scale=2; $total_cpu_temp / $index" | bc)
+        cpuTempC=$(echo $(bc <<< "($cpuTempF-32)/1.8"))
 
     if [[ -f "/opt/vc/bin/vcgencmd" ]]; then
         if gpuTempC=$(/opt/vc/bin/vcgencmd measure_temp); then
