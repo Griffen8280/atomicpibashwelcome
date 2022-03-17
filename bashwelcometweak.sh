@@ -151,7 +151,7 @@ _EOF_
 }
 
 function remove_bashwelcometweak() {
-    sed -i '/PIHOLE PROFILE START/,/PIHOLE PROFILE END/d' "$home/.bashrc"
+    sed -i '/PIHOLE PROFILE START/,/PIHOLE PROFILE END/d' "$HOME/.bashrc"
 }
 
 function gui_bashwelcometweak() {
