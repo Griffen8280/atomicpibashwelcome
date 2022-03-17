@@ -11,11 +11,12 @@
 # A Bash Welcome Tweak similar to Retro-Pie for PiHole
 
 much of the code for this came from the orignal over at: https://github.com/retropie/RetroPie-Setup/blob/master/scriptmodules/supplementary/bashwelcometweak.sh  
-I only updated it with a new variable and changed many of the system call backs to work independantly instead of being a part of the
-overall menu system used by the RetroPie team.
+I updated it with a new variable and changed many of the system call backs to work independantly instead of being a part of the
+overall menu system used by the RetroPie team.  It also makes use of the lm-sensors application since the normal sensors built into a raspberry pi do not exist for the CPU temp calls.
 
 # Installation 
 ```
+sudo apt install lm-sensors
 git clone --depth=1 https://github.com/Griffen8280/atomicpibashwelcome.git
 cd atomicpibashwelcome
 chmod +x bashwelcometweak.sh
