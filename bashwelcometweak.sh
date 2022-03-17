@@ -48,8 +48,6 @@ function pihole_welcome() {
     # calculate rough CPU and GPU temperatures:
     local cpuTempC
     local cpuTempF
-    local gpuTempC
-    local gpuTempF
         IFS=')' read -ra core_temp_arr <<< "$(sensors -f  | grep '^Core\s[[:digit:]]\+:')" #echo "${core_temp_arr[0]}"
         total_cpu_temp=0
         index=0
@@ -60,15 +58,6 @@ function pihole_welcome() {
         done
         cpuTempF=$(echo "scale=2; $total_cpu_temp / $index" | bc)
         cpuTempC=$(echo $(bc <<< "($cpuTempF-32)/1.8"))
-
-    if [[ -f "/opt/vc/bin/vcgencmd" ]]; then
-        if gpuTempC=$(/opt/vc/bin/vcgencmd measure_temp); then
-            gpuTempC=${gpuTempC:5:2}
-            gpuTempF=$((gpuTempC*9/5+32))
-        else
-            gpuTempC=""
-        fi
-    fi
 
     local df_out=()
     local line
@@ -139,7 +128,7 @@ function pihole_welcome() {
                 out+="${fgred}IP Address.........: $(getIPAddress)"
                 ;;
             9)
-                out+="Temperature........: CPU: ${cpuTempC}°C/${cpuTempF}°F GPU: ${gpuTempC}°C/${gpuTempF}°F"
+                out+="Temperature........: CPU: ${cpuTempC}°C/${cpuTempF}°F"
                 ;;
             10)
                 out+="${fgwht}The AtomicPi Project, https://digital-loggers.com/api.html"
