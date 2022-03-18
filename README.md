@@ -16,7 +16,10 @@ overall menu system used by the RetroPie team.  It also makes use of the lm-sens
 
 # Installation 
 ```
+#Pre-Requisites
 sudo apt install lm-sensors
+sudo sensors-detect --auto
+#Main Script
 git clone --depth=1 https://github.com/Griffen8280/atomicpibashwelcome.git
 cd atomicpibashwelcome
 chmod +x bashwelcometweak.sh
