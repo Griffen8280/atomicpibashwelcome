@@ -52,7 +52,7 @@ function pihole_welcome() {
         total_cpu_temp=0
         index=0
         for i in "${core_temp_arr[@]}"; do :
-                temp=$(echo "$i" | sed -n 's/F.*//; s/.*[+-]//; p; q')
+                temp=$(echo "$i" | sed -n 's/F.*//; s/.*[+-]//; p; q' | sed 's/.\{1\}$//')
                 let index++
                 total_cpu_temp=$(echo "$total_cpu_temp + $temp" | bc)
         done
@@ -100,6 +100,7 @@ function pihole_welcome() {
         )
     local out
     local i
+    local degree="°"
     for i in "${!logo[@]}"; do
         out+="  ${logo[$i]}  "
         case "$i" in
@@ -128,7 +129,7 @@ function pihole_welcome() {
                 out+="${fgred}IP Address.........: $(getIPAddress)"
                 ;;
             9)
-                out+="Temperature........: CPU: ${cpuTempC}°C/${cpuTempF}°F"
+                out+="Temperature........: CPU: ${cpuTempC}${degree}C/${cpuTempF}${degree}F"
                 ;;
             10)
                 out+="${fgwht}The AtomicPi Project, https://digital-loggers.com/api.html"
