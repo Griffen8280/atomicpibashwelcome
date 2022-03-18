@@ -12,14 +12,18 @@
 
 much of the code for this came from the orignal over at: https://github.com/retropie/RetroPie-Setup/blob/master/scriptmodules/supplementary/bashwelcometweak.sh  
 I updated it with a new variable and changed many of the system call backs to work independantly instead of being a part of the
-overall menu system used by the RetroPie team.  It also makes use of the lm-sensors application since the normal sensors built into a raspberry pi do not exist for the CPU temp calls.
+overall menu system used by the RetroPie team.  It also makes use of the lm-sensors application since the normal sensors built into a raspberry pi do not exist for the CPU temp calls.  In an effort to make the temp display as encoding friendly as possible all unicode special characters are stripped from the output and later added during display so calculation should still happen in bash for average temp.
+
+# Screenshot
+
+![screencap](https://user-images.githubusercontent.com/42878642/158995452-33d25a61-eb51-4568-8c1e-039212e9954a.png)
 
 # Installation 
 ```
-#Pre-Requisites
+# Pre-Requisites
 sudo apt install lm-sensors
 sudo sensors-detect --auto
-#Main Script
+# Main Script
 git clone --depth=1 https://github.com/Griffen8280/atomicpibashwelcome.git
 cd atomicpibashwelcome
 chmod +x bashwelcometweak.sh
