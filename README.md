@@ -23,11 +23,16 @@ overall menu system used by the RetroPie team.  It also makes use of the lm-sens
 # Pre-Requisites
 sudo apt install lm-sensors
 sudo sensors-detect --auto
+
 # Main Script
 git clone --depth=1 https://github.com/Griffen8280/atomicpibashwelcome.git
 cd atomicpibashwelcome
 chmod +x bashwelcometweak.sh
 ./bashwelcometweak.sh
+
+# Check installation
+cd ~/
+. .bashrc
 ```
 This will install the tweak for the user running it and contains much of the same useful information as the RetroPie tweak
 with an updated PiHole logo in ascii art.
