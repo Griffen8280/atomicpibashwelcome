@@ -12,20 +12,16 @@
 # Also includes the logo for PiHole for a little personalization
 #
 
-#Check for root and escalate if not
-if [ "$EUID" != 0 ]; then
-    sudo "$0" "$@"
-    exit $?
-fi
-
 #The menu system of this script relied on dialog, so we need to install it
-apt install dialog -y
-
-home=~/ # Primary home location
+command -v "dialog"
+if [[ $? -ne 0 ]]; then
+    sudo apt install dialog -y
+fi
 
 function install_bashwelcometweak() {
     remove_bashwelcometweak
     cat >> "$HOME/.bashrc" <<\_EOF_
+
 # PIHOLE PROFILE START
 
 function getIPAddress() {
