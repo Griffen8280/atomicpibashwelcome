@@ -35,4 +35,4 @@ cd ~/
 . .bashrc
 ```
 This will install the tweak for the user running it and contains much of the same useful information as the RetroPie tweak
-with an updated PiHole logo in ascii art.
+with an updated AtomicPi logo in ascii art.
