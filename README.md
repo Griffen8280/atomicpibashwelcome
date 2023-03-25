@@ -23,6 +23,8 @@ overall menu system used by the RetroPie team.  It also makes use of the lm-sens
 # Pre-Requisites
 sudo apt install lm-sensors
 sudo sensors-detect --auto
+# If using Debian you will also need bc
+sudo apt install bc
 
 # Main Script
 git clone --depth=1 https://github.com/Griffen8280/atomicpibashwelcome.git
